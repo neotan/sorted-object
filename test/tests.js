@@ -47,19 +47,19 @@ test("sorts case-sensitively", function (t) {
     t.end();
 });
 
-test("sorts in Descending order", function (t) {
-    var input = { hello: 3, Hi: 2, HELLO: 1, hi: 4 };
+test("sorts in Descending order if provide a boolean value as the 2nd parameter", function (t) {
+    var input = { b: 2, c: 3, a: 1 };
     var output = sortedObject(input, true);
-    var desired = { hi: 4, hello: 3, Hi: 2, HELLO: 1 };
+    var desired = { c: 3, b: 2, a: 1 };
 
     t.deepEqual(output, desired);
     t.end();
 });
 
 test("sorts in Ascending order if don't provide the 2nd parameter", function (t) {
-    var input = { hello: 3, Hi: 2, HELLO: 1, hi: 4 };
+    var input = { b: 2, c: 3, a: 1 };
     var output = sortedObject(input);
-    var desired = { HELLO: 1, Hi: 2, hello: 3, hi: 4 };
+    var desired = { a: 1, b: 2, c: 3 };
 
     t.deepEqual(output, desired);
     t.end();
