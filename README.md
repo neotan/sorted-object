@@ -18,3 +18,17 @@ fs.writeFileSync("dest.json", JSON.stringify(objectToSerialize));
 var sortedVersion = sortedObject(objectToSerialize);
 fs.writeFileSync("dest.json", JSON.stringify(sortedVersion));
 ```
+
+The default order direction is Ascending, you may provide a boolean value as 2nd parameter to sort in Descending order.
+
+```js
+var sortedObject = require("sorted-object");
+
+// sortedObject(obj, isDesc)
+
+sortedObject({ c:1, d:1, a:1, b:1 });
+//=> { a: 1, b: 1, c: 1, d: 1 }
+
+sortedObject(['c', 'd', 'a', 'b'], true);
+//=> { d: 1, c: 1, b: 1, a: 1 }
+```
